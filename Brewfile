@@ -1,4 +1,3 @@
-tap "homebrew/cask", "https://github.com/Homebrew/homebrew-cask.git"
 # Automatic configure script builder
 brew "autoconf"
 # Collection of over 500 reusable autoconf macros
@@ -11,10 +10,6 @@ brew "gettext"
 brew "bash"
 # Parser generator
 brew "bison"
-# Software library to render fonts
-brew "freetype"
-# Core application library for C
-brew "glib"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # Object-file caching compiler wrapper
@@ -23,8 +18,6 @@ brew "ccache"
 brew "clang-format"
 # Cross-platform make
 brew "cmake"
-# GNU multiple precision arithmetic library
-brew "gmp"
 # Pack, ship and run any application as a lightweight container
 brew "docker", link: false
 # Simple, fast and user-friendly alternative to find
@@ -33,14 +26,20 @@ brew "fd"
 brew "ffmpeg"
 # Fast Lexical Analyzer, generates Scanners (tokenizers)
 brew "flex"
+# Software library to render fonts
+brew "freetype"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU multiple precision arithmetic library
+brew "gmp"
 # C library for multiple-precision floating-point computations
 brew "mpfr"
 # GNU debugger
 brew "gdb"
 # Distributed revision control system
 brew "git"
+# Core application library for C
+brew "glib"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
 # Library to load and enumerate PKCS#11 modules
@@ -81,8 +80,6 @@ brew "ninja"
 brew "node", link: false
 # On-chip debugging, in-system programming and boundary-scan testing
 brew "open-ocd"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # Your Gateway to Embedded Software Development Excellence
 brew "platformio"
 # Python version management
@@ -113,8 +110,12 @@ brew "watch"
 brew "wget"
 # General-purpose lossless data-compression library
 brew "zlib"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Pre-built GNU bare-metal toolchain for 32-bit Arm processors
 cask "gcc-arm-embedded"
+# Open-source code editor
+cask "visual-studio-code"
 vscode "akamud.vscode-theme-onedark"
 vscode "albert.tabout"
 vscode "anthropic.claude-code"
