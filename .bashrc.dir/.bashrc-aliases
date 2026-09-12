@@ -1,0 +1,13 @@
+#!/bin/bash
+
+alias ls="ls --color=auto"
+alias ll="ls -ltrh"
+alias python="python3"
+alias rg="rg --hidden"
+alias aws-start="aws ec2 start-instances --instance-ids $AWS_INSTANCE_ID"
+alias aws-stop="aws ec2 stop-instances --instance-ids $AWS_INSTANCE_ID"
+alias aws-login="ssh $AWS_INSTANCE_IP"
+alias self="cd ~/git/self"
+alias concepts="cd ~/git/concepts"
+alias vim="nvim"
+alias vi="nvim"
