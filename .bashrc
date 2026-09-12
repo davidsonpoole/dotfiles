@@ -17,15 +17,12 @@ esac
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Suppress that annoying reminder to update to zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_R_OPTS="${FZF_CTRL_R_OPTS:+$FZF_CTRL_R_OPTS }--preview 'echo {}' --preview-window down:5:hidden:wrap --bind '?:toggle-preview'"
-
-# POSTGRES
-export PATH=$PATH:/usr/local/opt/postgresql@16/bin/
-. "$HOME/.cargo/env"
-export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
-export SESSION_SECRET="davidson"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
