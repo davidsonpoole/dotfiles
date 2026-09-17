@@ -1,1 +1,1 @@
-/Users/davidson/git/dotfiles/.vimrc
+../.vimrc
