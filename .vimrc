@@ -63,7 +63,8 @@ hi @type.builtin guifg=#CF8E6D
 hi @variable.member guifg=#C77DBB
 " SCREAMING_CASE constants
 hi @constant         guifg=#C77DBB gui=italic
-hi @constant.builtin guifg=#C77DBB
+" null is a keyword in IntelliJ's scheme (orange), not a purple constant
+hi @constant.builtin guifg=#CF8E6D
 
 " method/function declarations & calls (blue)
 hi @function            guifg=#57AAF7
