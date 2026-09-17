@@ -6,6 +6,8 @@ if [ -d ~/.bashrc.dir ]; then
     done
 fi
 
+[ -f ~/.bashrcoverrides ] && . ~/.bashrcoverrides
+
 [ -f /etc/bashrc ] && . /etc/bashrc
 
 # Enable the subsequent settings only in interactive sessions
@@ -32,3 +34,7 @@ export NVM_DIR="$HOME/.nvm"
 # PATH stuff
 export PATH="$HOME/git/vcpkg:$HOME/pspdev/bin:$HOME/.local/bin:$PATH"
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+
+# bindings
+bind '"\C-b": backward-word'
+bind '"\C-f": forward-word'
