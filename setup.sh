@@ -25,6 +25,10 @@ link "$PWD/.bashrc.dir" "$HOME/.bashrc.dir"
 mkdir -p "$HOME/.config"
 link "$PWD/nvim" "$HOME/.config/nvim"
 
+# coc.nvim extensions
+echo "Installing coc.nvim extensions"
+nvim --headless -c 'CocInstall -sync coc-java' -c 'qa'
+
 # Tmux Plugins
 
 TPM_DIR="$HOME/.tmux/plugins/tpm"
