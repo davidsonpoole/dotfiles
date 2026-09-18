@@ -33,8 +33,10 @@ colorscheme darcula
 " ---------------------------------------------------------------------
 hi Normal      guibg=#1E1F22 guifg=#BCBEC4
 hi CursorLine  guibg=#26282E
-hi LineNr      guifg=#4B5059
-hi CursorLineNr guifg=#A1A3AB
+hi LineNr      guifg=#4B5059 guibg=#1E1F22
+hi CursorLineNr guifg=#A1A3AB guibg=#1E1F22
+hi SignColumn  guibg=#1E1F22
+hi FoldColumn  guibg=#1E1F22
 
 hi! link @comment Comment
 hi Comment guifg=#7A7E85

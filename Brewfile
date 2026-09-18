@@ -114,6 +114,8 @@ brew "zlib"
 cask "claude-code"
 # Pre-built GNU bare-metal toolchain for 32-bit Arm processors
 cask "gcc-arm-embedded"
+# MesloLGS NF font, required for Catppuccin tmux status icons
+cask "font-meslo-for-powerlevel10k"
 # Open-source code editor
 cask "visual-studio-code"
 vscode "akamud.vscode-theme-onedark"
