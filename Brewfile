@@ -81,19 +81,13 @@ brew "node", link: false
 # On-chip debugging, in-system programming and boundary-scan testing
 brew "open-ocd"
 # Your Gateway to Embedded Software Development Excellence
-brew "platformio"
+#brew "platformio"
 # Python version management
 brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
-# Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9", link: false
 # Generic machine emulator and virtualizer
-brew "qemu"
+#brew "qemu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # CLI sampling profiler
@@ -111,9 +105,9 @@ brew "wget"
 # General-purpose lossless data-compression library
 brew "zlib"
 # Terminal-based AI coding assistant
-cask "claude-code"
+#cask "claude-code"
 # Pre-built GNU bare-metal toolchain for 32-bit Arm processors
-cask "gcc-arm-embedded"
+#cask "gcc-arm-embedded"
 # MesloLGS NF font, required for Catppuccin tmux status icons
 cask "font-meslo-for-powerlevel10k"
 # Open-source code editor

@@ -1,7 +1,31 @@
 #!/usr/bin/env bash
-# Installs TPM (Tmux Plugin Manager) and fetches the plugins listed in .tmux.conf.
-# MesloLGS NF (needed for Catppuccin's status icons) is installed via `brew bundle` (Brewfile).
+
 set -euo pipefail
+
+# Oh-my-bash
+echo "$OSH" || bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+# Link files
+# Use -n (no-dereference) so ln replaces an existing symlink-to-directory
+# in place instead of following it and nesting the new link inside it.
+# For real (non-symlink) directories left over from before, remove them
+# first since -n alone won't stop ln from nesting inside a real directory.
+link() {
+  local src="$1" dest="$2"
+  if [ -d "$dest" ] && [ ! -L "$dest" ]; then
+    rm -rf "$dest"
+  fi
+  ln -sfn "$src" "$dest"
+}
+
+link "$PWD/.vimrc" "$HOME/.vimrc"
+link "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+link "$PWD/.bashrc" "$HOME/.bashrc"
+link "$PWD/.bashrc.dir" "$HOME/.bashrc.dir"
+mkdir -p "$HOME/.config"
+link "$PWD/nvim" "$HOME/.config/nvim"
+
+# Tmux Plugins
 
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 CATPPUCCIN_DIR="$HOME/.config/tmux/plugins/catppuccin/tmux"
