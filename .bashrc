@@ -32,7 +32,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #
 # PATH stuff
-export PATH="$HOME/git/vcpkg:$HOME/pspdev/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/git/vcpkg:$HOME/pspdev/bin:$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 
 # bindings
