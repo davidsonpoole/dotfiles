@@ -72,7 +72,7 @@
   "Sync Title" : false,
   "Prompt Before Closing 2" : false,
   "BM Growl" : true,
-  "Command" : "\/bin\/bash",
+  "Command" : "\/opt\/homebrew\/opt\/bash\/bin\/bash",
   "Description" : "Default",
   "Space" : 0,
   "Mouse Reporting" : true,

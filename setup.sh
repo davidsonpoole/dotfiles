@@ -2,6 +2,31 @@
 
 set -euo pipefail
 
+# macOS ships an ancient bash 3.2 (frozen for GPLv3 licensing reasons) that
+# lacks READLINE_POINT support in `bind -x`, which breaks fzf's Ctrl-T
+# file widget (it always inserts at the start of the line). Install a
+# modern bash via Homebrew and make it the login shell if needed.
+if [[ "$OSTYPE" == darwin* ]] && ((BASH_VERSINFO[0] < 4)); then
+  echo "Detected old bash (${BASH_VERSION}); installing modern bash via Homebrew"
+  brew install bash
+
+  BREW_BASH="$(brew --prefix bash)/bin/bash"
+
+  if ! grep -qxF "$BREW_BASH" /etc/shells; then
+    echo "Adding $BREW_BASH to /etc/shells (requires sudo)"
+    echo "$BREW_BASH" | sudo tee -a /etc/shells >/dev/null
+  fi
+
+  if [ "$SHELL" != "$BREW_BASH" ]; then
+    echo "Changing login shell to $BREW_BASH (may prompt for your password)"
+    chsh -s "$BREW_BASH"
+  fi
+
+  echo "Login shell updated to $BREW_BASH. Note: some terminal apps (e.g. iTerm2)"
+  echo "override the login shell with their own profile 'Command' setting - make"
+  echo "sure that also points to $BREW_BASH (see iTermProfile.json)."
+fi
+
 # Oh-my-bash
 echo "$OSH" || bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
