@@ -85,6 +85,16 @@ hi @operator              guifg=#BCBEC4
 " generic type parameters (e.g. <T>) get IntelliJ's teal
 hi @type.parameter guifg=#16BAAC
 
+" darcula.vim leaves these at its own legacy colors, which don't match the
+" IntelliJ Dark scheme: locals/params/`self` are plain foreground there, and
+" module names in `import x` aren't highlighted at all. Mostly visible in
+" Python (self, import, constructor calls), but correct for Java/C too.
+hi @variable           guifg=#BCBEC4
+hi @variable.parameter guifg=#BCBEC4
+hi @variable.builtin   guifg=#BCBEC4
+hi @module             guifg=#BCBEC4
+hi @constructor        guifg=#BCBEC4
+
 " coc.nvim semantic tokens (from coc-java/jdtls) give true semantic
 " accuracy (e.g. distinguishing generics from real class names) beyond
 " what treesitter's syntax-only captures can do; mirror the same colors.
@@ -107,9 +117,9 @@ hi CocSemDecorator     guifg=#B3AE60
 " treesitter (Neovim only — plain Vim has no lua/treesitter support)
 if has('nvim')
 lua <<EOF
-require('nvim-treesitter').install { 'c', 'cpp', 'java' }
+require('nvim-treesitter').install { 'c', 'cpp', 'java', 'python' }
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'c', 'cpp', 'java' },
+  pattern = { 'c', 'cpp', 'java', 'python' },
   callback = function()
     pcall(vim.treesitter.start)
   end,

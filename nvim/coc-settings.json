@@ -1,3 +1,8 @@
 {
-  "semanticTokens.enable": true
+  "semanticTokens.enable": true,
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--query-driver=/Users/davidson/.platformio/packages/**/bin/*"
+  ]
 }

@@ -1,12 +1,12 @@
 #!/bin/bash
 
+[ -f ~/.bashrcoverrides ] && . ~/.bashrcoverrides
+
 if [ -d ~/.bashrc.dir ]; then
     for f in $(ls ~/.bashrc.dir/.bashrc-*); do
         source $f
     done
 fi
-
-[ -f ~/.bashrcoverrides ] && . ~/.bashrcoverrides
 
 [ -f /etc/bashrc ] && . /etc/bashrc
 
