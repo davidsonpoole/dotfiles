@@ -117,7 +117,11 @@ hi CocSemDecorator     guifg=#B3AE60
 " treesitter (Neovim only — plain Vim has no lua/treesitter support)
 if has('nvim')
 lua <<EOF
-require('nvim-treesitter').install { 'c', 'cpp', 'java', 'python' }
+-- parsers are compiled by the tree-sitter CLI, which may be unavailable
+-- (e.g. on Linux distros with too old a glibc for its release binaries)
+if vim.fn.executable('tree-sitter') == 1 then
+  require('nvim-treesitter').install { 'c', 'cpp', 'java', 'python' }
+end
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'c', 'cpp', 'java', 'python' },
   callback = function()
