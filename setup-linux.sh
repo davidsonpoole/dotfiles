@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #
-# Headless Linux counterpart to setup.sh. Installs the CLI subset of the
+# Headless Linux counterpart to setup-mac.sh. Installs the CLI subset of the
 # Brewfile (no fonts, casks or VS Code) and links the dotfiles.
 #
-# Supports dnf (Amazon Linux / Fedora / RHEL) and apt (Debian / Ubuntu).
-# Tools that are missing or too old in those repos (neovim, ripgrep, fd,
-# tree-sitter, tmux) are installed into ~/.local instead.
+# Supports dnf (Amazon Linux / Fedora / RHEL), apt (Debian / Ubuntu) and
+# pacman (Arch; see also setup-arch.sh for the desktop). Tools that are
+# missing or too old in those repos (neovim, ripgrep, fd, tree-sitter, tmux)
+# are installed into ~/.local instead.
 
 set -euo pipefail
 
@@ -51,8 +52,16 @@ elif command -v apt-get >/dev/null 2>&1; then
     autoconf automake libtool bison flex pkgconf \
     libssl-dev zlib1g-dev libevent-dev libncurses-dev \
     python3 python3-pip
+elif command -v pacman >/dev/null 2>&1; then
+  echo "Installing packages with pacman"
+  sudo pacman -S --needed --noconfirm \
+    git curl wget tar gzip unzip which procps-ng \
+    gcc make cmake ninja gdb \
+    autoconf automake libtool bison flex pkgconf \
+    openssl zlib libevent ncurses \
+    python python-pip
 else
-  echo "No supported package manager found (need dnf or apt-get)" >&2
+  echo "No supported package manager found (need dnf, apt-get or pacman)" >&2
   exit 1
 fi
 
@@ -167,7 +176,7 @@ if [ ! -d "$HOME/.oh-my-bash" ]; then
 fi
 
 # Link files
-# Unlike setup.sh, existing real files/directories are moved aside rather
+# Unlike setup-mac.sh, existing real files/directories are moved aside rather
 # than deleted, since a fresh Linux box usually has a distro ~/.bashrc.
 BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 link() {
@@ -235,7 +244,7 @@ else
 fi
 
 if ! command -v java >/dev/null 2>&1; then
-  echo "Note: coc-java needs a JDK 21+ (e.g. java-21-amazon-corretto-devel or openjdk-21-jdk)."
+  echo "Note: coc-java needs a JDK 21+ (e.g. java-21-amazon-corretto-devel, openjdk-21-jdk or jdk21-openjdk)."
 fi
 
 echo "Done. Start a new shell (exec bash -l) to pick up the new config."

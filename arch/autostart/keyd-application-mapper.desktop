@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=keyd application mapper
+Comment=Per-app keyd bindings (Mac-style Cmd shortcuts in Konsole)
+Exec=keyd-application-mapper -d
+X-KDE-autostart-phase=2

@@ -35,6 +35,10 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/git/vcpkg:$HOME/pspdev/bin:$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 
+# Editor for git, sudoedit, crontab etc. (they don't see the vim alias)
+export EDITOR=nvim
+export VISUAL=nvim
+
 # bindings
 bind '"\C-b": backward-word'
 bind '"\C-f": forward-word'
