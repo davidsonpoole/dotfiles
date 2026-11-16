@@ -169,6 +169,9 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow\ --no-messages\ --hidden
 
 filetype plugin on
 
+" disable CoC for Java (treesitter handles highlighting)
+autocmd FileType java let b:coc_enabled = 0
+
 " coc.nvim navigation
 function! CheckBackspace() abort
   let col = col('.') - 1
